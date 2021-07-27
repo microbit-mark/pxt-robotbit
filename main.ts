@@ -93,7 +93,6 @@ namespace robotbit {
 
     let initialized = false
     let initializedMatrix = false
-    let neoStrip: neopixel.Strip;
     let matBuf = pins.createBuffer(17);
     let distanceBuf = 0;
 
@@ -202,19 +201,6 @@ namespace robotbit {
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
 
-
-    /**
-     * Init RGB pixels mounted on robotbit
-     */
-    //% blockId="robotbit_rgb" block="RGB"
-    //% weight=5
-    export function rgb(): neopixel.Strip {
-        if (!neoStrip) {
-            neoStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
-        }
-
-        return neoStrip;
-    }
 
     /**
      * Servo Execute
